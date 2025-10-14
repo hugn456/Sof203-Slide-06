@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class JdbcPrepared {
 	static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	static String dburl = "jdbc:sqlserver://localhost;database=HRM";
+	static String dburl = "jdbc:sqlserver://localhost:1433;databaseName=HRM;encrypt=false;trustServerCertificate=true";
 	static String username = "sa";
 	static String password = "123456";
 	static {
@@ -31,7 +31,7 @@ public class JdbcPrepared {
 	}
 
 	/** Truy vấn dữ liệu */
-	public static ResultSet executeQuery(String sql, Object[] values) throws SQLException {
+	public static ResultSet executeQuery(String sql, Object... values) throws SQLException {
 		Connection connection = getConnection();
 		PreparedStatement statement = connection.prepareStatement(sql);
 		for (int i = 0; i < values.length; i++) {

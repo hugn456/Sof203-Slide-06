@@ -4,11 +4,12 @@ import java.sql.*;
 
 public class JdbcStatement {
 	static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	static String dburl = "jdbc:sqlserver://localhost;database=HRM";
+	static String dburl = "jdbc:sqlserver://localhost:1433;databaseName=HRM;encrypt=false;trustServerCertificate=true";
 	static String username = "sa";
 	static String password = "123456";
 	static {
-		try { // nạp driver
+		try {
+			// nạp driver
 			Class.forName(driver);
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
